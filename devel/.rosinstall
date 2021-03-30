@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/cranfield/roverGazebo_ws/devel/setup.sh
+    local-name: /home/cranfield/GazeboRacer_ws/devel/setup.sh
