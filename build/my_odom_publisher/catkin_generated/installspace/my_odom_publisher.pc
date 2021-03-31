@@ -1,4 +1,4 @@
-prefix=/home/cranfield/GazeboRacer_ws/install
+prefix=/home/cranfield/roverGazebo_ws/install
 
 Name: my_odom_publisher
 Description: Description of my_odom_publisher

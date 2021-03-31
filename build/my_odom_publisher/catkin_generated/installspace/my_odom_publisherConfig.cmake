@@ -67,14 +67,14 @@ set(my_odom_publisher_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(my_odom_publisher_SOURCE_PREFIX /home/cranfield/GazeboRacer_ws/src/my_odom_publisher)
-  set(my_odom_publisher_DEVEL_PREFIX /home/cranfield/GazeboRacer_ws/devel)
+  set(my_odom_publisher_SOURCE_PREFIX /home/cranfield/roverGazebo_ws/src/my_odom_publisher)
+  set(my_odom_publisher_DEVEL_PREFIX /home/cranfield/roverGazebo_ws/devel)
   set(my_odom_publisher_INSTALL_PREFIX "")
   set(my_odom_publisher_PREFIX ${my_odom_publisher_DEVEL_PREFIX})
 else()
   set(my_odom_publisher_SOURCE_PREFIX "")
   set(my_odom_publisher_DEVEL_PREFIX "")
-  set(my_odom_publisher_INSTALL_PREFIX /home/cranfield/GazeboRacer_ws/install)
+  set(my_odom_publisher_INSTALL_PREFIX /home/cranfield/roverGazebo_ws/install)
   set(my_odom_publisher_PREFIX ${my_odom_publisher_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/cranfield/GazeboRacer_ws/install/lib;/opt/ros/melodic/lib)
+    foreach(path /home/cranfield/roverGazebo_ws/install/lib;/home/cranfield/roverGazebo_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

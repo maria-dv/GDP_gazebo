@@ -11,29 +11,27 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys, getopt, math
 
+ 
+
 back_left_wheel = 0
 back_right_wheel = 0
 front_left_hinge = 0
 front_right_hinge = 0
 
+ 
+
 def velocity_callback(msg):
     T = 0.15 #trackwidth of the rover
     L = 0.192
+    rw = 0.034
     x_dot = msg.linear.x
-    psi_dot = msg.angular.z
-
+    back_left_wheel = x_dot/rw
+    back_right_wheel = x_dot/rw
+    front_left_hinge = msg.angular.z
+    front_right_hinge = msg.angular.z
     #Motors' velocities:
     global front_left_hinge,front_right_hinge, back_left_wheel,back_right_wheel 
-    r = 0.035 #radius of wheels
-    rL = r-(math.copysign(1,psi_dot)*(T/2.0))
-    rR = r+(math.copysign(1,psi_dot)*(T/2.0))
-    back_left_wheel = x_dot * rR/r
-    back_left_wheel = back_left_wheel/r
-    back_right_wheel = x_dot * rL/r
-    back_right_wheel = back_right_wheel/r
-    front_left_hinge = math.atan2(L,rL)*math.copysign(1,psi_dot)
-    front_right_hinge = math.atan2(L,rR)*math.copysign(1,psi_dot)
-
+    
 def main():
     global front_left_wheel,front_right_wheel,back_left_wheel,back_right_wheel
     rospy.init_node('VelocitiesConverter')
@@ -48,12 +46,14 @@ def main():
     LWF_pub = rospy.Publisher(LWF_cmd_topic, Float64, queue_size = 1)
     rate = rospy.Rate(100)
     while not rospy.is_shutdown():
-	RWB_pub.publish(back_right_wheel)
+    	RWB_pub.publish(back_right_wheel)
         LWB_pub.publish(back_left_wheel)
-	RWF_pub.publish(front_right_hinge)
+    	RWF_pub.publish(front_right_hinge)
         LWF_pub.publish(front_left_hinge)
-	print("Converting keyboard commands to motor commands")
+    	print("Converting keyboard commands to motor commands")
         rate.sleep()
+
+ 
 
 if __name__ == '__main__':
     main()

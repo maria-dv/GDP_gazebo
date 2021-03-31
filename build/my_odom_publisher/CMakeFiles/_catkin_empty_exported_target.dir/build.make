@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cranfield/GazeboRacer_ws/src
+CMAKE_SOURCE_DIR = /home/cranfield/roverGazebo_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cranfield/GazeboRacer_ws/build
+CMAKE_BINARY_DIR = /home/cranfield/roverGazebo_ws/build
 
 # Utility rule file for _catkin_empty_exported_target.
 
@@ -63,10 +63,10 @@ my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/build: _catkin_em
 .PHONY : my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/build
 
 my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	cd /home/cranfield/GazeboRacer_ws/build/my_odom_publisher && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
+	cd /home/cranfield/roverGazebo_ws/build/my_odom_publisher && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
 .PHONY : my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/depend:
-	cd /home/cranfield/GazeboRacer_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cranfield/GazeboRacer_ws/src /home/cranfield/GazeboRacer_ws/src/my_odom_publisher /home/cranfield/GazeboRacer_ws/build /home/cranfield/GazeboRacer_ws/build/my_odom_publisher /home/cranfield/GazeboRacer_ws/build/my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cranfield/roverGazebo_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cranfield/roverGazebo_ws/src /home/cranfield/roverGazebo_ws/src/my_odom_publisher /home/cranfield/roverGazebo_ws/build /home/cranfield/roverGazebo_ws/build/my_odom_publisher /home/cranfield/roverGazebo_ws/build/my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : my_odom_publisher/CMakeFiles/_catkin_empty_exported_target.dir/depend
 

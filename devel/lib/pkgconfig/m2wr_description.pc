@@ -1,4 +1,4 @@
-prefix=/home/cranfield/GazeboRacer_ws/devel
+prefix=/home/cranfield/roverGazebo_ws/devel
 
 Name: m2wr_description
 Description: Description of m2wr_description

@@ -1,4 +1,4 @@
-prefix=/home/cranfield/GazeboRacer_ws/devel
+prefix=/home/cranfield/roverGazebo_ws/devel
 
 Name: convert_velocities
 Description: Description of convert_velocities

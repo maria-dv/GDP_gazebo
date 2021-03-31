@@ -48,10 +48,7 @@
   </gazebo>
   <gazebo reference="camera_link">
     <material>Gazebo/Black</material>
-  </gazebo>
-  <gazebo reference="imu_link">
-    <material>Gazebo/white</material>
-  </gazebo>
+	</gazebo>
 
   <!-- camera -->
   <gazebo reference="camera_link">
@@ -120,6 +117,7 @@
   </link> 
 
 <!-- wheels & hinges -->
+
 <!-- Front right -->
   <link name="link_front_right_wheel">
     <inertial>
@@ -160,12 +158,12 @@
   </joint>
 
 
-  <joint name="joint_front_right_hinge" type="revolute">
+ <joint name="joint_front_right_hinge" type="revolute">
     <origin rpy="0 0 0" xyz="0.125 -0.085 0.0"/>
     <child link="link_front_right_hinge"/>
     <parent link="link_chassis"/>
     <axis rpy="0 0 0" xyz="0 0 1"/>
-    <limit  effort="10" velocity="5" lower="-0.610" upper="0.523"/>
+    <limit  effort="10" velocity="5" lower="-0.261" upper="0.174"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -213,7 +211,7 @@
     <child link="link_front_left_hinge"/>
     <parent link="link_chassis"/>
     <axis rpy="0 0 0" xyz="0 0 1"/>
-    <limit effort="10" velocity="5" lower= "-0.610" upper="0.523"/>
+    <limit effort="10" velocity="5" lower= "-0.261" upper="0.174"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -305,9 +303,15 @@
 	<axis rpy = "0 0 0" xyz="0 1 0" />
   </joint>
 
+  <!-- IMU colour -->
 
-  <!--imu link and joint-->
-<link name="imu_link">
+<!--<gazebo reference="imu_link">
+    <material>Gazebo/white</material>
+  </gazebo>-->
+
+<!--imu link and joint-->
+
+<!--<link name="imu_link">
   <inertial>
     <mass value="1e-5"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -332,18 +336,19 @@
     <parent link="link_chassis"/>
     <child link="imu_link"/>
     <axis rpy = "0 0 0" xyz="0 1 0"/>
-  </joint>
+  </joint>-->
  
+  <!--imu plugin-->
+
   <!--<gazebo reference="imu_link">
-    <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
       <always_on>true</always_on>
-      <update_rate>100</update_rate>
+      <update_rate>100.0</update_rate>
       <visualize>true</visualize>
-      <topic>__default_topic__</topic>
+      <topic>imu_raw</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <topicName>imu</topicName>
-        <bodyName>imu_link</bodyName>
+        <topicName>imu/data</topicName>
+        <bodyName>imu_body</bodyName>
         <updateRateHZ>10.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
@@ -351,9 +356,10 @@
         <frameName>imu_link</frameName>
         <initialOrientationAsReference>false</initialOrientationAsReference>
       </plugin>
-      <pose>0 0 0 0 0 0</pose>
     </sensor>
   </gazebo-->
+
+
 
   <transmission name = "joint_back_left_wheel_trans">
   	<type> transmission_interface/SimpleTransmission </type>
