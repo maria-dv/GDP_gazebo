@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/cranfield/roverGazebo_ws/src
-# Build directory: /home/cranfield/roverGazebo_ws/build
+# Source directory: /home/cranfield/GDP_gazebo/src
+# Build directory: /home/cranfield/GDP_gazebo/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

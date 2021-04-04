@@ -1,4 +1,4 @@
-prefix=/home/cranfield/roverGazebo_ws/install
+prefix=/home/cranfield/GDP_gazebo/install
 
 Name: my_odom_publisher
 Description: Description of my_odom_publisher

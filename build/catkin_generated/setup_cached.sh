@@ -7,6 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export LD_LIBRARY_PATH='/opt/ros/melodic/lib'
-export PKG_CONFIG_PATH='/opt/ros/melodic/lib/pkgconfig'
-export PWD='/home/cranfield/roverGazebo_ws/build'
+export CMAKE_PREFIX_PATH="/home/cranfield/GDP_gazebo/devel:$CMAKE_PREFIX_PATH"
+export PWD='/home/cranfield/GDP_gazebo/build'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/cranfield/GDP_gazebo/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/cranfield/GDP_gazebo/src:$ROS_PACKAGE_PATH"

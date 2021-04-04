@@ -1,8 +1,8 @@
-# Install script for directory: /home/cranfield/roverGazebo_ws/src/convert_velocities
+# Install script for directory: /home/cranfield/GDP_gazebo/src/convert_velocities
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cranfield/roverGazebo_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cranfield/GDP_gazebo/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cranfield/roverGazebo_ws/build/convert_velocities/catkin_generated/installspace/convert_velocities.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cranfield/GDP_gazebo/build/convert_velocities/catkin_generated/installspace/convert_velocities.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/convert_velocities/cmake" TYPE FILE FILES
-    "/home/cranfield/roverGazebo_ws/build/convert_velocities/catkin_generated/installspace/convert_velocitiesConfig.cmake"
-    "/home/cranfield/roverGazebo_ws/build/convert_velocities/catkin_generated/installspace/convert_velocitiesConfig-version.cmake"
+    "/home/cranfield/GDP_gazebo/build/convert_velocities/catkin_generated/installspace/convert_velocitiesConfig.cmake"
+    "/home/cranfield/GDP_gazebo/build/convert_velocities/catkin_generated/installspace/convert_velocitiesConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/convert_velocities" TYPE FILE FILES "/home/cranfield/roverGazebo_ws/src/convert_velocities/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/convert_velocities" TYPE FILE FILES "/home/cranfield/GDP_gazebo/src/convert_velocities/package.xml")
 endif()
 

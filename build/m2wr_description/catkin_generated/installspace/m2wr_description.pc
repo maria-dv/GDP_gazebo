@@ -1,4 +1,4 @@
-prefix=/home/cranfield/roverGazebo_ws/install
+prefix=/home/cranfield/GDP_gazebo/install
 
 Name: m2wr_description
 Description: Description of m2wr_description
