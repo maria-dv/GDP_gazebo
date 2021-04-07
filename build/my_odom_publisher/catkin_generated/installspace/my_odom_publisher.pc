@@ -1,8 +1,0 @@
-prefix=/home/cranfield/GDP_gazebo/install
-
-Name: my_odom_publisher
-Description: Description of my_odom_publisher
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
