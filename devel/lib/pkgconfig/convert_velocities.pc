@@ -1,8 +1,0 @@
-prefix=/home/cranfield/GDP_gazebo/devel
-
-Name: convert_velocities
-Description: Description of convert_velocities
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
