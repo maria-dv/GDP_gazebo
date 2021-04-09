@@ -84,7 +84,7 @@ def pidCallback(msg):
     # Remember some variables for next time
     lastError = error
     previousTime = currentTime
-    throttleCmd = 0.5 
+    throttleCmd = 0.4 
     steeringCmd = pidOutput
     # if msg.data == "i":
     #     publish = bool(True)
