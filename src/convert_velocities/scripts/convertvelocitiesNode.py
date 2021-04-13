@@ -27,8 +27,14 @@ def velocity_callback(msg):
     x_dot = msg.linear.x
     back_left_wheel = x_dot / rw
     back_right_wheel = x_dot / rw
-    front_left_hinge = msg.angular.z
     front_right_hinge = msg.angular.z
+    front_left_hinge = msg.angular.z
+    #steer=msg.angular.z
+    #numerator = 2*L*math.sin(steer)     
+    #front_left_hinge = math.atan2(numerator, (2*L*math.cos(steer)+T*sin(steer)))     
+    #front_right_hinge = math.atan2(numerator, (2*L*math.cos(steer)-T*sin(steer)))
+    
+      
     
 
 
