@@ -11,6 +11,8 @@
         <!-- Spawn the robot in gazebo -->
 	<node name = "m2wr_spawn" pkg = "gazebo_ros" type = "spawn_model" output = "screen" args = "-urdf -param robot_description -model rover -x $(arg x) -y $(arg y) -z $(arg z)"/>
         
+	<node name="imu_reader" pkg="my_imu_data" type="imu_pub.py" output="screen" />
+
         <!-- Load Controllers -->
         <rosparam command = "load" file = "$(find m2wr_description)/config/joints.yaml"/>
         

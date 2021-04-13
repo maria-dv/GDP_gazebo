@@ -1,2 +1,2 @@
-convert_velocities:m2wr_description:my_odom_publisher
--DCATKIN_DEVEL_PREFIX=/home/cranfield/roverGazebo_ws/devel -DCMAKE_INSTALL_PREFIX=/home/cranfield/roverGazebo_ws/install -G Unix Makefiles
+camera_perception:convert_velocities:m2wr_description:my_imu_data:my_odom_publisher
+-DCATKIN_DEVEL_PREFIX=/home/cranfield/GDP_gazebo/devel -DCMAKE_INSTALL_PREFIX=/home/cranfield/GDP_gazebo/install -G Unix Makefiles

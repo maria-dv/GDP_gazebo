@@ -1,4 +1,4 @@
-prefix=/home/cranfield/roverGazebo_ws/install
+prefix=/home/cranfield/GDP_gazebo/install
 
 Name: convert_velocities
 Description: Description of convert_velocities

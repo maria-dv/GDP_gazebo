@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "my_odom_publisher"
-PROJECT_SPACE_DIR = "/home/cranfield/roverGazebo_ws/devel"
+PROJECT_SPACE_DIR = "/home/cranfield/GDP_gazebo/devel"
 PROJECT_VERSION = "0.0.0"

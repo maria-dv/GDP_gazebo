@@ -67,14 +67,14 @@ set(convert_velocities_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(convert_velocities_SOURCE_PREFIX /home/cranfield/roverGazebo_ws/src/convert_velocities)
-  set(convert_velocities_DEVEL_PREFIX /home/cranfield/roverGazebo_ws/devel)
+  set(convert_velocities_SOURCE_PREFIX /home/cranfield/GDP_gazebo/src/convert_velocities)
+  set(convert_velocities_DEVEL_PREFIX /home/cranfield/GDP_gazebo/devel)
   set(convert_velocities_INSTALL_PREFIX "")
   set(convert_velocities_PREFIX ${convert_velocities_DEVEL_PREFIX})
 else()
   set(convert_velocities_SOURCE_PREFIX "")
   set(convert_velocities_DEVEL_PREFIX "")
-  set(convert_velocities_INSTALL_PREFIX /home/cranfield/roverGazebo_ws/install)
+  set(convert_velocities_INSTALL_PREFIX /home/cranfield/GDP_gazebo/install)
   set(convert_velocities_PREFIX ${convert_velocities_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/cranfield/roverGazebo_ws/install/lib;/home/cranfield/roverGazebo_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/cranfield/GDP_gazebo/install/lib;/home/cranfield/GDP_gazebo/devel/lib;/home/cranfield/roverGazebo_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
