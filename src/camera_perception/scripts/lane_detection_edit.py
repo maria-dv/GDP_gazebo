@@ -12,14 +12,14 @@ import numpy as np
 import roslib
 import sys
 import rospy
-from std_msgs.msg import Float64
+from std_msgs.msg import Float64, Float32MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 import math
 
 rospy.init_node('image_listener')
 
-pub = rospy.Publisher('lateral_error', Float64, queue_size=1)
+pub = rospy.Publisher('lateral_error', Float32MultiArray, queue_size=1)
 
 # DIM = (640, 480)
 # K = np.array(
@@ -59,7 +59,7 @@ def callback(msg):
         # map1, map2 = cv2.fisheye.initUndistortRectifyMap(K, D, np.eye(3), K, DIM, cv2.CV_16SC2)
         # undistorted_img = cv2.remap(frame, map1, map2, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
         pts1 = np.float32([[230, 151], [730, 151], [0, 616], [960, 616]])
-        warped_img = warp_image(frame, pts1, 640, 616)
+        warped_img = warp_image(frame, pts1, 480, 616)
         #print dimensions of warped image frame
         #print(warped_img.shape[0], warped_img.shape[1])
         gauss_img = cv2.GaussianBlur(warped_img, (5, 5), 0)
@@ -67,8 +67,8 @@ def callback(msg):
         region_of_interest_vertices = [
             (0, 360),
             (0, 0),
-            (640, 0),
-            (640, 360)]
+            (480, 0),
+            (480, 360)]
         # mask = cv2.inRange(hsv_img, lower_color, upper_color)
         # cv2.imshow('A',mask)
         gray_image = cv2.cvtColor(warped_img, cv2.COLOR_RGB2GRAY)
@@ -103,17 +103,27 @@ def callback(msg):
 
             cv2.circle(warped_img, (cX, cY), 5, (36, 255, 12), -1)
 
+	    
+            rows, cols = gray_image.shape[:2]
+            [vx, vy, x, y] = cv2.fitLine(c, cv2.DIST_L2, 0, 0.01, 0.01)
+
+            lefty = int((-x * vy / (vx)) + y)
+            righty = int(((cols - x) * vy / (vx)) + y)
+            # print("line ", (cols - 1, righty), (0, lefty))
+            line = np.array([0, lefty, cols - 1, righty])
+            heading = self.get_heading_error(line.astype(np.float32))
+
             # To draw line you can use cv2.line or numpy slicing
             cv2.line(warped_img, (x + int(w / 2), y), (x + int(w / 2), y + h), (0, 0, 255), 3)
             # image[int(cY - h/2):int(cY+h/2), cX] = (36, 255, 12)
-            cv2.line(warped_img, (320, cY), (cX, cY), (255, 0, 0), thickness=1)
+            cv2.line(warped_img, (240, cY), (cX, cY), (255, 0, 0), thickness=1)
             width1=200
             # [vx, vy, x, y] = cv2.fitLine(c, cv2.DIST_L2, 0, 0.01, 0.01)
             # lefty = int((-x * vy / vx) + y)  # n valuue in y = vy/vx*x + n y(x=0)
             # righty = int(((width1 - x) * vy / vx) + y)
             # img = cv2.line(warped_img, (width1, righty), (0, lefty), (255, 0, 0), thickness=1)
 
-            pub.publish(cX-320)
+            pub.publish(cX-240)
 
         else:
             rospy.loginfo("No lines")
@@ -131,6 +141,35 @@ def warp_image(img, pts1, width=640, height=480):
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     imgOutput = cv2.warpPerspective(img, matrix, (width, height))
     return imgOutput
+
+def get_heading_error(line):
+
+        # bottom point
+        x1 = line[0]
+        y1 = line[1]
+        # Top point (centre)
+        x2 = line[2]
+        y2 = line[3]
+
+        num = y2 - y1
+        if num > 0:
+            den = x2 - x1
+        else:
+            num = y1 - y2
+            den = x1 - x2
+        if den is not 0:
+            slope = num / den
+            heading = math.degrees(math.atan(slope))
+            # if abs(heading)>90:
+            if heading == 0:
+                return 0
+            sign = -heading / abs(heading)
+            heading = abs(90 - (abs(heading))) * sign
+        else:
+            heading = 0
+        return heading
+
+        # slope = (y2 - y1) / (x2 - x1)
 
 def brightness_contrast(img, brightness=100):
 

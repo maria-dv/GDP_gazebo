@@ -174,7 +174,7 @@
     <child link="link_front_right_wheel"/>
     <parent link="link_front_right_hinge"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
-    <limit effort="5" velocity="10"/>
+    <limit effort="5" velocity="22"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -184,7 +184,7 @@
     <child link="link_front_right_hinge"/>
     <parent link="link_chassis"/>
     <axis rpy="0 0 0" xyz="0 0 1"/>
-    <limit  effort="5" velocity="5" lower="-0.43" upper="0.33"/>
+    <limit  effort="5" velocity="10" lower="-0.43" upper="0.33"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -223,7 +223,7 @@
     <child link="link_front_left_wheel"/>
     <parent link="link_front_left_hinge"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
-    <limit effort="5" velocity="10"/>
+    <limit effort="5" velocity="22"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -232,7 +232,7 @@
     <child link="link_front_left_hinge"/>
     <parent link="link_chassis"/>
     <axis rpy="0 0 0" xyz="0 0 1"/>
-    <limit effort="5" velocity="5" lower= "-0.33" upper="0.44"/>
+    <limit effort="5" velocity="10" lower= "-0.33" upper="0.44"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -262,7 +262,7 @@
     <child link="link_back_right_wheel"/>
     <parent link="link_chassis"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
-    <limit effort="5" velocity="10"/>
+    <limit effort="5" velocity="22"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -292,7 +292,7 @@
     <child link="link_back_left_wheel"/>
     <parent link="link_chassis"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
-    <limit effort="5" velocity="10"/>
+    <limit effort="5" velocity="22"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
@@ -318,7 +318,7 @@
   </link>
 
   <joint name="camera_joint" type="fixed">
-	<origin xyz="0.08 0 0.11" rpy="0 0.5 0"/>
+	<origin xyz="0.08 0 0.11" rpy="0 0.55 0"/>
 	<child link="camera_link"/>
 	<parent link="link_chassis"/>
 	<axis rpy = "0 0 0" xyz="0 1 0" />
@@ -357,10 +357,10 @@
   <transmission name = "joint_back_left_wheel_trans">
   	<type> transmission_interface/SimpleTransmission </type>
         <joint name = "joint_back_left_wheel">
-        	<hardwareInterface> hardware_interface/VelocityJointInterface </hardwareInterface>
+        	<hardwareInterface>VelocityJointInterface </hardwareInterface>
         </joint>
         <actuator name = "joint_back_left_wheel_motor">
-                <hardwareInterface> hardware_interface/VelocityJointInterface </hardwareInterface>
+                <hardwareInterface>VelocityJointInterface </hardwareInterface>
   		<mechanicalReduction>1</mechanicalReduction>
 	</actuator>
   </transmission>
@@ -368,10 +368,10 @@
   <transmission name = "joint_back_right_wheel_trans">
   	<type> transmission_interface/SimpleTransmission </type>
         <joint name = "joint_back_right_wheel">
-        	<hardwareInterface> hardware_interface/VelocityJointInterface </hardwareInterface>
+        	<hardwareInterface>VelocityJointInterface </hardwareInterface>
         </joint>
         <actuator name = "joint_back_right_wheel_motor">
-                <hardwareInterface> hardware_interface/VelocityJointInterface </hardwareInterface>
+                <hardwareInterface>VelocityJointInterface </hardwareInterface>
   		<mechanicalReduction>1</mechanicalReduction>
 	</actuator>
   </transmission>
@@ -379,10 +379,10 @@
   <transmission name = "joint_front_left_hinge_trans">
   	<type> transmission_interface/SimpleTransmission </type>
         <joint name = "joint_front_left_hinge">
-        	<hardwareInterface> hardware_interface/PositionJointInterface </hardwareInterface>
+        	<hardwareInterface>PositionJointInterface </hardwareInterface>
         </joint>
         <actuator name = "joint_front_left_hinge_motor">
-                <hardwareInterface> hardware_interface/PositionJointInterface </hardwareInterface>
+                <hardwareInterface>PositionJointInterface </hardwareInterface>
   		<mechanicalReduction>1</mechanicalReduction>
 	</actuator>
   </transmission>
@@ -390,10 +390,10 @@
   <transmission name = "joint_front_right_hinge_trans">
   	<type> transmission_interface/SimpleTransmission </type>
         <joint name = "joint_front_right_hinge">
-        	<hardwareInterface> hardware_interface/PositionJointInterface </hardwareInterface>
+        	<hardwareInterface>PositionJointInterface </hardwareInterface>
         </joint>
         <actuator name = "joint_front_right_hinge_motor">
-                <hardwareInterface> hardware_interface/PositionJointInterface </hardwareInterface>
+                <hardwareInterface>PositionJointInterface </hardwareInterface>
   		<mechanicalReduction>1</mechanicalReduction>
 	</actuator>
   </transmission>
@@ -402,6 +402,7 @@
 <gazebo>
   <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
     <robotNamespace>/rover</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
   </plugin>
 </gazebo>
 </robot>

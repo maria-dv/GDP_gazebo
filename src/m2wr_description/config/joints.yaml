@@ -7,12 +7,12 @@
   joint_back_left_wheel_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: joint_back_left_wheel
-    pid: {p: 0.1, i: 0.5, d: 0.1}
+    pid: {p: 1, i: 0.5, d: 0.1}
 
   joint_back_right_wheel_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: joint_back_right_wheel
-    pid: {p: 0.1, i: 0.5, d: 0.1}
+    pid: {p: 1, i: 0.5, d: 0.1}
 
 #Position controllers  ----------------------------------
   joint_front_left_hinge_position_controller:
